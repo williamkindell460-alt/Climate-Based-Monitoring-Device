@@ -3,4 +3,6 @@ project(ClimateMonitor C)
 
 set(CMAKE_C_STANDARD 11)
 
+add_compile_options(-Wall -Wextra -Werror)
+
 add_executable(climate_monitor 01_firmware/src/main.c)
