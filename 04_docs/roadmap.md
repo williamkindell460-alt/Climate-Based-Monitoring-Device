@@ -1,11 +1,11 @@
 # First week
-- Create the GitHub repository and the README with goals, impact, and a parts list <br>
+- Create the GitHub repository and the README with goals, impact, and a parts list
     [x]
-- Add the project roadmap and acceptance criteria <br>
+- Add the project roadmap and acceptance criteria
     [x]
-- Scaffold the repository <br>
+- Scaffold the repository
     [x]
-- add CI skeleton <br>
+- add CI skeleton
     [x]
 - add a sample CSV + placeholder plots
 - Implement the CSV parser
