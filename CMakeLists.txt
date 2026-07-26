@@ -3,4 +3,4 @@ project(ClimateMonitor C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(climate_monitor main.c)
+add_executable(climate_monitor 01_firmware/src/main.c)
