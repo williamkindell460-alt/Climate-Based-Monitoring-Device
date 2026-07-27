@@ -28,7 +28,7 @@ Air Quality Index (AQI)
   Max: 49
   Avg: 48.5
 
-CO₂ (ppm)
+CO2 (ppm)
   Min: 420
   Max: 421
   Avg: 420.5
@@ -41,7 +41,7 @@ VOC (ppb)
 ----------------------------------------------------
 Trend Detection
 ----------------------------------------------------
-Temperature: Slight decrease (Δ = -0.1°C)
+Temperature: Slight decrease (Δ = -0.1C)
 Humidity: Slight increase (Δ = +0.1%)
 Pressure: Rising (Δ = +0.3 hPa)
 AQI: Slight decrease (Δ = -1)
