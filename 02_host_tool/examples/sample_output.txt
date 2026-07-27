@@ -45,7 +45,7 @@ Temperature: Slight decrease (Δ = -0.1C)
 Humidity: Slight increase (Δ = +0.1%)
 Pressure: Rising (Δ = +0.3 hPa)
 AQI: Slight decrease (Δ = -1)
-CO₂: Slight increase (Δ = +1 ppm)
+CO2: Slight increase (Δ = +1 ppm)
 VOC: Slight increase (Δ = +2 ppb)
 
 ----------------------------------------------------
