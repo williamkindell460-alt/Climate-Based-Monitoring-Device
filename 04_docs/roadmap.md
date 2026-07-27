@@ -7,7 +7,6 @@
     [x]
 - add CI skeleton
     [x]
-
 - add a sample CSV + placeholder plots 
     [x]
 - Implement the CSV parser 
@@ -16,7 +15,6 @@
     [x]
 - Implement trend analysis functions (temp/humidity/VOC) 
     [x]
-
 - Add tests
 - Add ASCII sparkline visualization
 - Implement anomaly detection (heat spikes, VOC surges)
