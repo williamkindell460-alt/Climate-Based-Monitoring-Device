@@ -11,18 +11,19 @@
     [x]
 - Implement the CSV parser 
     [x]
-- Add error handling for corrupted logs
-    [x]
 - Implement trend analysis functions (temp/humidity/VOC) 
     [x]
+
+- Add error handling for corrupted logs
 - Add tests
 - Add ASCII sparkline visualization
 - Implement anomaly detection (heat spikes, VOC surges)
-- Add example outputs + plots
 
+- Add example outputs + plots
 - Add host-side CLI flags (-plot, -stats, -anomalies)
 - Add documentation for host tool
 - Add host-side performance benchmark (parse speed, memory use)
+
 - Add unit tests (Unity)
 
 - **Host tool completion**
