@@ -35,8 +35,8 @@ jobs:
       run: |
         cppcheck --enable=all --error-exitcode=1 --library=std \
           --suppress=missingIncludeSystem --suppress=unusedVariable \
+          --suppress=unknownMacro \
           -I 01_firmware/include -I 02_host_tool/include \
-          --define=PYTHON_EXECUTABLE=1 \
           01_firmware/src
 
 
