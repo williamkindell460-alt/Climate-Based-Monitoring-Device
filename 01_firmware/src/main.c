@@ -2,8 +2,7 @@
 #include "bme68x.h"
 #include <stdlib.h>
 
-int main(void)
-{
+int main(void) {
     struct bme68x_dev bme;
     int8_t rslt;
     struct bme68x_conf conf;
