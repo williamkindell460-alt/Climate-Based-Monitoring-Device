@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static int init_dev(void) {
+int init_dev(void) {
     // struct bme68x_dev bme;
     // int8_t rslt;
     // struct bme68x_conf conf;
