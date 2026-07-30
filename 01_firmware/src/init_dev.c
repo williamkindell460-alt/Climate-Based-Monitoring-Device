@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* cppcheck-suppress unusedFunction */
 int init_dev(void) {
     // struct bme68x_dev bme;
     // int8_t rslt;
