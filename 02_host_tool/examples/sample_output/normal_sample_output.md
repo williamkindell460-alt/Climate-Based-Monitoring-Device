@@ -168,6 +168,6 @@ Environment shows notable changes in one or more metrics.
 - Trend anomaly: VOC jump at sample 9 (Δ = -19951.00 ppb)
 
 
-![Trend and anomaly plots showing temperature, humidity, pressure, AQI, CO₂, and VOC over 18 minutes](..\images\normal_sample_plot.png)
+![Trend and anomaly plots showing temperature, humidity, pressure, AQI, CO₂, and VOC over 18 minutes](../images/normal_sample_plot.png)
 
 *Figure 1 — Trend plot: six stacked time series (Temperature, Humidity, Pressure, AQI, CO₂, VOC) for the sample input (18.00 minutes).*
