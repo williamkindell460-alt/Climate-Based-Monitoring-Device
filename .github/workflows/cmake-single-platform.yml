@@ -31,10 +31,17 @@ jobs:
     - name: Install cppcheck
       run: sudo apt-get update && sudo apt-get install -y cppcheck
     - name: Run cppcheck
-      run: cppcheck --enable=all --error-exitcode=1 --library=std --suppress=missingIncludeSystem --suppress=unusedVariable -I 01_firmware/include -I 02_host_tool/include 01_firmware/src --define=PYTHON_EXECUTABLE=\"C:/Users/jrkin/AppData/Local/Python/pythoncore-3.14-64/python.exe\"
-    - name: Build
-      # Build your program with the given configuration
+      shell: bash
+      run: |
+        cppcheck --enable=all --error-exitcode=1 --library=std \
+          --suppress=missingIncludeSystem --suppress=unusedVariable \
+          -I 01_firmware/include -I 02_host_tool/include \
+          --define='PYTHON_EXECUTABLE="C:/Users/jrkin/AppData/Local/Python/pythoncore-3.14-64/python.exe"' \
+          01_firmware/src
+
+    - name: Build program
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
 
     - name: Test
       working-directory: ${{github.workspace}}/build
