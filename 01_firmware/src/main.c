@@ -1,19 +1,23 @@
 #include "analyzer.h"
 #include "bme68x.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 int main(void) {
+    printf("[INFO] Main: main is running.\n");
     struct bme68x_dev bme;
     int8_t rslt;
     struct bme68x_conf conf;
     struct bme68x_heatr_conf heatr_conf;
     struct bme68x_data data;
-
-    system("\"C:/Users/jrkin/.local/bin/python3.14.exe\" ../../03_data/src/sensor_reader.py");
-
+    // read and write data
+    system("\"" PYTHON_EXECUTABLE "\" ../../03_data/src/sensor_reader.py");
+    // analyze data
     analyzer("../../03_data/output_data/output.bin",
              "../../03_data/output_data/analysis_output.txt");
-
+    // plot data
+    system("\"" PYTHON_EXECUTABLE "\" ../../03_data/src/plot_data.py");
+    printf("[OK] Main: main ran successfully.\n");
     return 0;
 }
 

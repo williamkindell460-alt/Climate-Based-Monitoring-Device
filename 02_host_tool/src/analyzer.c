@@ -1,11 +1,11 @@
-#include "../../01_firmware/include/logging.h"
 #include "../include/analyzer.h"
-#include "../include/trend_detection.h"
+#include "../../01_firmware/include/logging.h"
 #include "../include/anomaly_detection.h"
+#include "../include/trend_detection.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-/* 
+/*
    Selector Functions
  */
 double select_temp(SensorRow r) { return r.temp; }
@@ -14,21 +14,23 @@ double select_pressure(SensorRow r) { return r.pressure; }
 double select_air_qual(SensorRow r) { return r.air_qual; }
 double select_co2(SensorRow r) { return r.co2; }
 double select_voc(SensorRow r) { return r.voc; }
-
-/* 
+/*
    Count rows in binary file
  */
 int count_rows(FILE *fp) {
+    printf("[INFO] Analyzer: count_rows is running.\n");
     fseek(fp, 0, SEEK_END);
     long size = ftell(fp);
     fseek(fp, 0, SEEK_SET);
     return size / (7 * sizeof(double));
+    printf("[OK] Analyzer: count_rows function ran successfully\n");
 }
 
-/* 
+/*
    Load all sensor rows from file
  */
 int load_rows(FILE *fp, SensorRow *rows, int max_rows) {
+    printf("[INFO] Analyzer: load_rows is running.\n");
     double values[7];
     int count = 0;
 
@@ -43,10 +45,11 @@ int load_rows(FILE *fp, SensorRow *rows, int max_rows) {
         count++;
     }
 
+    printf("[OK] Analyzer: load_rows function ran successfully\n");
     return count;
 }
 
-/* 
+/*
    Print summary block to file
 */
 void print_summary(FILE *out,
@@ -54,57 +57,58 @@ void print_summary(FILE *out,
                    int count,
                    SensorRow *rows,
                    double temp_min, double temp_max, double temp_avg,
-                   double hum_min,  double hum_max,  double hum_avg,
-                   double press_min,double press_max,double press_avg,
-                   double aqi_min,  double aqi_max,  double aqi_avg,
-                   double co2_min,  double co2_max,  double co2_avg,
-                   double voc_min,  double voc_max,  double voc_avg)
-{
-
-
-    fprintf(out,
-        "Climate-Based Monitoring Device — Host Tool Analysis\n"
-        "====================================================\n\n"
-        "Input file: %s\n"
-        "Samples processed: %d\n"
-        "Time range: %.2f minutes\n"
-        "----------------------------------------------------\n"
-        "Summary Statistics\n"
-        "----------------------------------------------------\n",
-        filename,
-        count,
-        rows[count - 1].time
-    );
+                   double hum_min, double hum_max, double hum_avg,
+                   double press_min, double press_max, double press_avg,
+                   double aqi_min, double aqi_max, double aqi_avg,
+                   double co2_min, double co2_max, double co2_avg,
+                   double voc_min, double voc_max, double voc_avg) {
+    printf("[INFO] Analyzer: print_summary is running.\n");
 
     fprintf(out,
-        "Temperature (C)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
-        temp_min, temp_max, temp_avg);
+            "Climate-Based Monitoring Device — Host Tool Analysis\n"
+            "====================================================\n\n"
+            "Input file: %s\n"
+            "Samples processed: %d\n"
+            "Time range: %.2f minutes\n"
+            "----------------------------------------------------\n"
+            "Summary Statistics\n"
+            "----------------------------------------------------\n",
+            filename,
+            count,
+            rows[count - 1].time);
 
     fprintf(out,
-        "Humidity (%%)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
-        hum_min, hum_max, hum_avg);
+            "Temperature (C)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
+            temp_min, temp_max, temp_avg);
 
     fprintf(out,
-        "Pressure (hPa)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
-        press_min, press_max, press_avg);
+            "Humidity (%%)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
+            hum_min, hum_max, hum_avg);
 
     fprintf(out,
-        "Air Quality Index (AQI)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
-        aqi_min, aqi_max, aqi_avg);
+            "Pressure (hPa)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
+            press_min, press_max, press_avg);
 
     fprintf(out,
-        "CO2 (ppm)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
-        co2_min, co2_max, co2_avg);
+            "Air Quality Index (AQI)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
+            aqi_min, aqi_max, aqi_avg);
 
     fprintf(out,
-        "VOC (ppb)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
-        voc_min, voc_max, voc_avg);
+            "CO2 (ppm)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
+            co2_min, co2_max, co2_avg);
+
+    fprintf(out,
+            "VOC (ppb)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
+            voc_min, voc_max, voc_avg);
+
+    printf("[OK] Analyzer: print_summary ran successfully\n");
 }
 
 /*
    Analyzer Main Function
 */
 int analyzer(const char *input_file, const char *output_file) {
+    printf("[INFO] Analyzer: analyzer is running.");
     FILE *fp = fopen(input_file, "rb");
     if (!fp) {
         printf("Could not open file\n");
@@ -146,7 +150,6 @@ int analyzer(const char *input_file, const char *output_file) {
     double voc_max = find_max(rows_array, count, select_voc);
     double voc_avg = find_avg(rows_array, count, select_voc);
 
-
     /* Write report */
     FILE *out = fopen(output_file, "w");
     if (!out) {
@@ -162,33 +165,40 @@ int analyzer(const char *input_file, const char *output_file) {
     anomaly_detection(rows_array, count, output_file);
 
     free(rows_array);
+    printf("[OK] Analyzer: analyzer ran successfully\n");
     return 0;
 }
 
-/* 
+/*
    Min / Max / Avg
  */
 double find_min(SensorRow arr[], int length, double (*selector)(SensorRow)) {
+    printf("[INFO] Analyzer: find_min is running.\n");
     double min = selector(arr[0]);
     for (int i = 1; i < length; i++) {
         double v = selector(arr[i]);
         if (v < min) min = v;
     }
+    printf("[OK] Analyzer: find_min ran successfully\n");
     return min;
 }
 
 double find_max(SensorRow arr[], int length, double (*selector)(SensorRow)) {
+    printf("[INFO] Analyzer: find_max is running.\n");
     double max = selector(arr[0]);
     for (int i = 1; i < length; i++) {
         double v = selector(arr[i]);
         if (v > max) max = v;
     }
+    printf("[OK] Analyzer: find_max ran successfully\n");
     return max;
 }
 
 double find_avg(SensorRow arr[], int length, double (*selector)(SensorRow)) {
+    printf("[INFO] Analyzer: find_avg is running.\n");
     double sum = 0.0;
     for (int i = 0; i < length; i++)
         sum += selector(arr[i]);
+    printf("[OK] Analyzer: find_avg ran successfully\n");
     return sum / length;
 }

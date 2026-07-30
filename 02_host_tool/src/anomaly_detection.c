@@ -1,10 +1,10 @@
 #include "../include/analyzer.h"
-#include <stdio.h>
-#include <stdint.h>
 #include <math.h>
+#include <stdint.h>
+#include <stdio.h>
 
-void anomaly_detection(SensorRow *rows, int count, const char *output_file)
-{
+void anomaly_detection(SensorRow *rows, int count, const char *output_file) {
+    printf("[INFO] Anomaly Detection: anomaly_detection is running.\n");
     FILE *out = fopen(output_file, "a");
     if (!out) {
         printf("Could not open output file for appending.\n");
@@ -12,16 +12,33 @@ void anomaly_detection(SensorRow *rows, int count, const char *output_file)
     }
 
     fprintf(out,
-        "----------------------------------------------------\n"
-        "Anomaly Detection\n"
-        "----------------------------------------------------\n"
-    );
+            "----------------------------------------------------\n"
+            "Anomaly Detection\n"
+            "----------------------------------------------------\n");
 
     int anomalies_found = 0;
 
-    /* ----------------------------------------------------
+    /*
        HARD ANOMALIES — Physically impossible values
-    ---------------------------------------------------- */
+    */
+    hard_anomalies(anomalies_found, out, count, rows);
+
+    /*
+       SOFT ANOMALIES — Environmentally abnormal values
+    */
+    soft_anomalies(anomalies_found, out, count, rows);
+
+    /*
+       TREND ANOMALIES — Sudden jumps between samples
+    */
+    trend_anomalies(anomalies_found, out, count, rows);
+
+    fprintf(out, "\n");
+    fclose(out);
+    printf("[OK] Anomaly Detections: anomaly_detection ran successfully\n");
+}
+int hard_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
+    printf("[INFO] Anomaly Detection: hard_anomalies is running.\n");
     for (int i = 0; i < count; i++) {
 
         if (rows[i].temp < -100 || rows[i].temp > 60) {
@@ -54,10 +71,12 @@ void anomaly_detection(SensorRow *rows, int count, const char *output_file)
             anomalies_found = 1;
         }
     }
+    printf("[OK] Anomaly Detection: hard_anomalies ran successfully.\n");
+    return anomalies_found;
+}
 
-    /*
-       SOFT ANOMALIES — Environmentally abnormal values
-    */
+int soft_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
+    printf("[INFO] Anomaly Detection: soft_anomalies is running.\n");
     for (int i = 0; i < count; i++) {
 
         if (rows[i].air_qual > 150) {
@@ -80,18 +99,20 @@ void anomaly_detection(SensorRow *rows, int count, const char *output_file)
             anomalies_found = 1;
         }
     }
+    printf("[OK] Anomaly Detection: soft_anomalies ran successfully.\n");
+    return anomalies_found;
+}
 
-    /* 
-       TREND ANOMALIES — Sudden jumps between samples
-    */
+int trend_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
+    printf("[INFO] Anomaly Detection: trend_anomalies is running.\n");
     for (int i = 1; i < count; i++) {
 
-        double temp_jump  = rows[i].temp     - rows[i - 1].temp;
-        double hum_jump   = rows[i].humidity - rows[i - 1].humidity;
+        double temp_jump = rows[i].temp - rows[i - 1].temp;
+        double hum_jump = rows[i].humidity - rows[i - 1].humidity;
         double press_jump = rows[i].pressure - rows[i - 1].pressure;
-        double aqi_jump   = rows[i].air_qual - rows[i - 1].air_qual;
-        double co2_jump   = rows[i].co2      - rows[i - 1].co2;
-        double voc_jump   = rows[i].voc      - rows[i - 1].voc;
+        double aqi_jump = rows[i].air_qual - rows[i - 1].air_qual;
+        double co2_jump = rows[i].co2 - rows[i - 1].co2;
+        double voc_jump = rows[i].voc - rows[i - 1].voc;
 
         if (fabs(temp_jump) > 2.0) {
             fprintf(out, "Trend anomaly: Temperature jump at sample %d (Δ = %.2f°C)\n", i, temp_jump);
@@ -123,14 +144,12 @@ void anomaly_detection(SensorRow *rows, int count, const char *output_file)
             anomalies_found = 1;
         }
     }
-
     /*
        NO ANOMALIES FOUND
     */
     if (!anomalies_found) {
         fprintf(out, "No anomalies detected across all samples.\n");
     }
-
-    fprintf(out, "\n");
-    fclose(out);
+    printf("[OK] Anomaly Detection: trend_anomalies ran successfully.\n");
+    return anomalies_found;
 }
