@@ -1,5 +1,6 @@
 #include "run_pipeline.h"
 
 int main() {
-    return run_pipeline();
+    run_pipeline();
+    return 0;
 }
