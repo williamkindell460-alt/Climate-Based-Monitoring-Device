@@ -23,7 +23,10 @@ This project is one born out of the current state of the climate, specifically t
   ```cmake find_package(Python3 REQUIRED COMPONENTS Interpreter) 
   add_compile_definitions(PYTHON_EXECUTABLE="${Python3_EXECUTABLE}") ``
 ### 1. Clone the Repository
-- ```bash git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git <br> cd Climate-Based-Monitoring-Device ```
+- ```bash 
+    git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git 
+    cd Climate-Based-Monitoring-Device 
+    ```
 
 ### 2. Configure with CMake
 - Generate build files
