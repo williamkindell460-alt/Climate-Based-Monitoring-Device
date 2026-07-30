@@ -51,8 +51,9 @@ VOC: Slight increase (Δ = +2 ppb)
 ----------------------------------------------------
 Anomaly Detection
 ----------------------------------------------------
-No anomalies detected.
-All values within expected outdoor environmental ranges.
+No impossible values detected.
+No sensor faults detected.
+No sudden jumps outside expected environmental behavior.
 
 ----------------------------------------------------
 Overall Assessment

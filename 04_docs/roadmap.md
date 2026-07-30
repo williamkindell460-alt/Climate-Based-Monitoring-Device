@@ -12,22 +12,22 @@
 - Implement the CSV parser 
     [x]
 - Implement trend analysis functions (temp/humidity/VOC) 
-- Add example outputs + plots
-- Add error handling for corrupted logs
+    [x]
+- Implement anomaly detection (heat spikes, VOC surges) 
+    [x]
+- Finalize host MVP 
+    [x]
+- Add example outputs + plots 
 - Add tests
 - Add ASCII sparkline visualization
-- Implement anomaly detection (heat spikes, VOC surges)
-
 - Add host-side CLI flags (-plot, -stats, -anomalies)
 - Add documentation for host tool
 - Add host-side performance benchmark (parse speed, memory use)
-
+- Add error handling for corrupted logs
 - Add unit tests (Unity)
-
 - **Host tool completion**
 
 # Second week
-- Finalize host MVP
 - Scaffold firmware core (drivers, sleep cycle, error codes)
 - Wire sensors (BME680 + CCS811)
 - Validate raw readings
@@ -59,8 +59,6 @@
 - Add hardware stress tests (thermal drift, noise, airflow)
 - Add documentation for failure modes
 - Add real world comparison: NOAA data vs your logs
-- Add climate relevance section
-- Record demo video/GIF
 - **Software completion (host + firmware integrated)**
 
 # Fourth week

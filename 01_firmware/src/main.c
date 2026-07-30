@@ -1,11 +1,21 @@
-#include "bme68x.h"
+#include "../include/bme68x.h"
+#include "../../02_host_tool/include/analyzer.h"
+#include <stdlib.h>
+
+
+
+
+
 int main(void){
     struct bme68x_dev bme;
     int8_t rslt;
     struct bme68x_conf conf;
     struct bme68x_heatr_conf heatr_conf;
     struct bme68x_data data;
-    
+
+    system("\"C:/Users/jrkin/.local/bin/python3.14.exe\" ../../03_data/src/sensor_reader.py");
+    analyzer("../../03_data/output_data/output.bin", "../../03_data/output_data/analysis_output.txt");
+    return 0;
 }
 //Must be initialized
     //uint8_t chip_id;

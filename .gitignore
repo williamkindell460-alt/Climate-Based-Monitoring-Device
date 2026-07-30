@@ -22,7 +22,7 @@
 *.la
 *.lo
 
-# Shared objects (inc. Windows DLLs)
+# Shared objects (including Windows DLLs)
 *.dll
 *.so
 *.so.*
@@ -51,11 +51,31 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# debug information files
+# Debug information files
 *.dwo
 
-*.vscode/
+# IDE / Editor folders
+.vscode/
+.idea/
 
-bme68x.c
-bme68x.h
-bme68x_defs.h
+# CMake / Ninja build output
+/build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+ninja.build
+rules.ninja
+*.ninja
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Logs
+*.log
+
+# Sensor driver files (REMOVE these if you want them tracked!)
+# bme68x.c
+# bme68x.h
+# bme68x_defs.h

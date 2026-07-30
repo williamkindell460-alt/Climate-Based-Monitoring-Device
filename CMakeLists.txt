@@ -1,8 +1,8 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.15)
 project(ClimateMonitor C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_compile_options(-Wall -Wextra -Werror)
-
-add_executable(climate_monitor 01_firmware/src/main.c)
+# Add subdirectories for firmware and host tool
+add_subdirectory(01_firmware)
+add_subdirectory(02_host_tool)
