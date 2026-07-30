@@ -23,8 +23,7 @@ This project is one born out of the current state of the climate, specifically t
   ```cmake find_package(Python3 REQUIRED COMPONENTS Interpreter) 
   add_compile_definitions(PYTHON_EXECUTABLE="${Python3_EXECUTABLE}") ``
 ### 1. Clone the Repository
-- ```bash git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git
- cd Climate-Based-Monitoring-Device ```
+- ```bash git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git <br> cd Climate-Based-Monitoring-Device ```
 
 ### 2. Configure with CMake
 - Generate build files
@@ -41,8 +40,7 @@ This project is one born out of the current state of the climate, specifically t
 - - The C-based host analysis tool
 ### 4. Run the Full Pipeline (`main`)
 - The full pipeline is executed using Ninja:
-- - ```bash cd build 
-ninja run ``
+- - ```bash cd build <br> ninja run ```
 - This will:
 - - Read CSV files from 01_firmware/real_output/
 - - Generate output.bin
