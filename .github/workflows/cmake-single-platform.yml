@@ -31,12 +31,7 @@ jobs:
     - name: Install cppcheck
       run: sudo apt-get update && sudo apt-get install -y cppcheck
     - name: Run cppcheck
-      run: cppcheck --enable=all --error-exitcode=1 --library=std \
-          --suppress=missingIncludeSystem \
-          --suppress=unusedVariable \
-          01_firmware/src
-
-
+      run: cppcheck --enable=all --error-exitcode=1 --library=std --suppress=missingIncludeSystem --suppress=unusedVariable 01_firmware/src
     - name: Build
       # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
