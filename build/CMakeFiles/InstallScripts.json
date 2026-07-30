@@ -1,9 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/cmake_install.cmake",
-		"C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/01_firmware/cmake_install.cmake",
-		"C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/02_host_tool/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

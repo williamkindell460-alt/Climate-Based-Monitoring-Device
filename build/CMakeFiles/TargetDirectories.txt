@@ -1,9 +1,0 @@
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/CMakeFiles/edit_cache.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/CMakeFiles/rebuild_cache.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/01_firmware/CMakeFiles/main.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/01_firmware/CMakeFiles/run.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/01_firmware/CMakeFiles/edit_cache.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/01_firmware/CMakeFiles/rebuild_cache.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/02_host_tool/CMakeFiles/host_tool.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/02_host_tool/CMakeFiles/edit_cache.dir
-C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/build/02_host_tool/CMakeFiles/rebuild_cache.dir
