@@ -36,7 +36,7 @@ jobs:
         cppcheck --enable=all --error-exitcode=1 --library=std \
           --suppress=missingIncludeSystem --suppress=unusedVariable \
           -I 01_firmware/include -I 02_host_tool/include \
-          --define='PYTHON_EXECUTABLE="C:/Users/jrkin/AppData/Local/Python/pythoncore-3.14-64/python.exe"' \
+          --define=PYTHON_EXECUTABLE \
           01_firmware/src
 
     - name: Build program
