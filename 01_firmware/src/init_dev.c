@@ -3,11 +3,11 @@
 #include <stdlib.h>
 
 int init_dev(void) {
-    struct bme68x_dev bme;
-    int8_t rslt;
-    struct bme68x_conf conf;
-    struct bme68x_heatr_conf heatr_conf;
-    struct bme68x_data data;
+    // struct bme68x_dev bme;
+    // int8_t rslt;
+    // struct bme68x_conf conf;
+    // struct bme68x_heatr_conf heatr_conf;
+    // struct bme68x_data data;
 
     return 0;
 }
