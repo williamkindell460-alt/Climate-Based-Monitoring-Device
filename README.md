@@ -20,28 +20,26 @@ This project is one born out of the current state of the climate, specifically t
 - **CMake ≥ 3.15**
 - **Python 3**  
   Automatically detected by CMake via:
-  ```cmake
-  find_package(Python3 REQUIRED COMPONENTS Interpreter)
-  add_compile_definitions(PYTHON_EXECUTABLE="${Python3_EXECUTABLE}")
+  ```cmake find_package(Python3 REQUIRED COMPONENTS Interpreter) \n add_compile_definitions(PYTHON_EXECUTABLE="${Python3_EXECUTABLE}") ``
 ### 1. Clone the Repository
-- ```bash git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git
-  cd Climate-Based-Monitoring-Device
+- ```bash git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git \n cd Climate-Based-Monitoring-Device ```
 
 ### 2. Configure with CMake
 - Generate build files
-- ```bash cmake -B build -DCMAKE_BUILD_TYPE=Release
+- - ```bash cmake -B build -DCMAKE_BUILD_TYPE=Release ```
+
 - CMake will:
 - - Detect your Python 3 interpreter
 - - Define PYTHON_EXECUTABLE automatically
 - - Generate platform-specific build files
 ### 3. Build the project
-- ```bash cmake --build build --config Release
+- ```bash cmake --build build --config Release ```
 - This compiles:
 - -  The ESP32 firmware logic
 - - The C-based host analysis tool
 ### 4. Run the Full Pipeline (`main`)
 - The full pipeline is executed using Ninja:
-- - ```bash cd build ninja run
+- - ```bash cd build \n ninja run ``
 - This will:
 - - Read CSV files from 01_firmware/real_output/
 - - Generate output.bin
