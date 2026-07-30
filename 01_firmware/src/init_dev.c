@@ -1,4 +1,3 @@
-#include "analyzer.h"
 #include "bme68x.h"
 #include <stdio.h>
 #include <stdlib.h>
