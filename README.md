@@ -12,7 +12,6 @@ This project develops a low power, ESP32 based climate monitoring system that co
 ## Impact
 This project is one born out of the current state of the climate, specifically the change it had gone through in recent years. While many credible sources have made the same conclusion regarding its change in average temperature, I wanted to make a device that attempts to find the reason for the warmth. Is it the CO2 in the air? Is it the humidity? Is it a change in pressure? What is causing this warmth?
 ## Requirements
-
 ### Required Programs
 - **C compiler**
   - Linux: gcc or clang  
@@ -26,8 +25,8 @@ This project is one born out of the current state of the climate, specifically t
   add_compile_definitions(PYTHON_EXECUTABLE="${Python3_EXECUTABLE}")
 ### 2. Clone the Repository
 - ```bash
--  - git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git
--  - cd Climate-Based-Monitoring-Device
+-  git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git
+-  cd Climate-Based-Monitoring-Device
 
 ### 3. Configure with CMake
 - Generate build files
