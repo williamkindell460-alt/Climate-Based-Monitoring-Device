@@ -46,10 +46,12 @@ def export_binary(filename, timestamps, temp, humid, pressure, air_qual, co2, vo
                 air_qual[i], co2[i], voc[i]
             ))
 
+print("============== Sensor Reader ==============")
+print("[INFO] sensor_reader.py is running")
 # Find newest CSV
 csv_files = glob.glob(os.path.join(CSV_DIR, "*.csv"))
 if not csv_files:
-    print(f"No CSV files found in {CSV_DIR}")
+    print(f"[ERROR] No CSV files found in {CSV_DIR}")
     exit(1)
 
 latest_csv = max(csv_files, key=os.path.getmtime)
@@ -61,4 +63,4 @@ temp, humid, pressure, air_qual, co2, voc = parse_values(rows)
 
 export_binary(OUT_BIN, time, temp, humid, pressure, air_qual, co2, voc)
 
-print("Sensor Reader Ran")
+print("[OK] sensor_reader.py ran successfully")

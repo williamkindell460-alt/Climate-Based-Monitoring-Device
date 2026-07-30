@@ -1,13 +1,15 @@
+#include "../include/anomaly_detection.h"
 #include "../include/analyzer.h"
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
 
 void anomaly_detection(SensorRow *rows, int count, const char *output_file) {
-    printf("[INFO] Anomaly Detection: anomaly_detection is running.\n");
+    printf("=====================Anomaly Detection=====================\n\n");
+    printf("[INFO] Anomaly Detection: anomaly_detection is running.\n\n");
     FILE *out = fopen(output_file, "a");
     if (!out) {
-        printf("Could not open output file for appending.\n");
+        printf("[ERROR] Could not open output file for appending.\n\n");
         return;
     }
 
@@ -35,10 +37,11 @@ void anomaly_detection(SensorRow *rows, int count, const char *output_file) {
 
     fprintf(out, "\n");
     fclose(out);
-    printf("[OK] Anomaly Detections: anomaly_detection ran successfully\n");
+    printf("[OK] Anomaly Detections: anomaly_detection ran successfully\n\n");
 }
 int hard_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
-    printf("[INFO] Anomaly Detection: hard_anomalies is running.\n");
+    printf("----------------------HARD ANOMALIES----------------------\n\n");
+    printf("[INFO] Anomaly Detection: hard_anomalies is running.\n\n");
     for (int i = 0; i < count; i++) {
 
         if (rows[i].temp < -100 || rows[i].temp > 60) {
@@ -71,12 +74,13 @@ int hard_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
             anomalies_found = 1;
         }
     }
-    printf("[OK] Anomaly Detection: hard_anomalies ran successfully.\n");
+    printf("[OK] Anomaly Detection: hard_anomalies ran successfully.\n\n");
     return anomalies_found;
 }
 
 int soft_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
-    printf("[INFO] Anomaly Detection: soft_anomalies is running.\n");
+    printf("----------------------SOFT ANOMALIES----------------------\n\n");
+    printf("[INFO] Anomaly Detection: soft_anomalies is running.\n\n");
     for (int i = 0; i < count; i++) {
 
         if (rows[i].air_qual > 150) {
@@ -99,12 +103,13 @@ int soft_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
             anomalies_found = 1;
         }
     }
-    printf("[OK] Anomaly Detection: soft_anomalies ran successfully.\n");
+    printf("[OK] Anomaly Detection: soft_anomalies ran successfully.\n\n");
     return anomalies_found;
 }
 
 int trend_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
-    printf("[INFO] Anomaly Detection: trend_anomalies is running.\n");
+    printf("---------------------TREND ANOMALIES---------------------\n\n");
+    printf("[INFO] Anomaly Detection: trend_anomalies is running.\n\n");
     for (int i = 1; i < count; i++) {
 
         double temp_jump = rows[i].temp - rows[i - 1].temp;
@@ -148,8 +153,8 @@ int trend_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) 
        NO ANOMALIES FOUND
     */
     if (!anomalies_found) {
-        fprintf(out, "No anomalies detected across all samples.\n");
+        fprintf(out, "No anomalies detected across all samples.\n\n");
     }
-    printf("[OK] Anomaly Detection: trend_anomalies ran successfully.\n");
+    printf("[OK] Anomaly Detection: trend_anomalies ran successfully.\n\n");
     return anomalies_found;
 }

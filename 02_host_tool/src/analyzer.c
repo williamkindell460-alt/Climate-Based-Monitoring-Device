@@ -18,19 +18,21 @@ double select_voc(SensorRow r) { return r.voc; }
    Count rows in binary file
  */
 int count_rows(FILE *fp) {
-    printf("[INFO] Analyzer: count_rows is running.\n");
+    printf("---------------------- count_rows ----------------------\n\n");
+    printf("[INFO] Analyzer: count_rows is running.\n\n");
     fseek(fp, 0, SEEK_END);
     long size = ftell(fp);
     fseek(fp, 0, SEEK_SET);
     return size / (7 * sizeof(double));
-    printf("[OK] Analyzer: count_rows function ran successfully\n");
+    printf("[OK] Analyzer: count_rows function ran successfully\n\n");
 }
 
 /*
    Load all sensor rows from file
  */
 int load_rows(FILE *fp, SensorRow *rows, int max_rows) {
-    printf("[INFO] Analyzer: load_rows is running.\n");
+    printf("---------------------- load_rows ----------------------\n\n");
+    printf("[INFO] Analyzer: load_rows is running.\n\n");
     double values[7];
     int count = 0;
 
@@ -45,7 +47,7 @@ int load_rows(FILE *fp, SensorRow *rows, int max_rows) {
         count++;
     }
 
-    printf("[OK] Analyzer: load_rows function ran successfully\n");
+    printf("[OK] Analyzer: load_rows function ran successfully\n\n");
     return count;
 }
 
@@ -62,7 +64,8 @@ void print_summary(FILE *out,
                    double aqi_min, double aqi_max, double aqi_avg,
                    double co2_min, double co2_max, double co2_avg,
                    double voc_min, double voc_max, double voc_avg) {
-    printf("[INFO] Analyzer: print_summary is running.\n");
+    printf("---------------------- print_summary ----------------------\n\n");
+    printf("[INFO] Analyzer: print_summary is running.\n\n");
 
     fprintf(out,
             "Climate-Based Monitoring Device — Host Tool Analysis\n"
@@ -101,17 +104,18 @@ void print_summary(FILE *out,
             "VOC (ppb)\nMin: %.2f\nMax: %.2f\nAverage: %.2f\n\n",
             voc_min, voc_max, voc_avg);
 
-    printf("[OK] Analyzer: print_summary ran successfully\n");
+    printf("[OK] Analyzer: print_summary ran successfully\n\n");
 }
 
 /*
    Analyzer Main Function
 */
 int analyzer(const char *input_file, const char *output_file) {
-    printf("[INFO] Analyzer: analyzer is running.");
+    printf("-------------------- ANALYZER --------------------\n\n");
+    printf("[INFO] Analyzer: analyzer is running.\n");
     FILE *fp = fopen(input_file, "rb");
     if (!fp) {
-        printf("Could not open file\n");
+        printf("[ERROR] Could not open file\n");
         return 1;
     }
 
@@ -119,7 +123,7 @@ int analyzer(const char *input_file, const char *output_file) {
     SensorRow *rows_array = calloc(rows, sizeof(SensorRow));
     int count = load_rows(fp, rows_array, rows);
     if (count == 0) {
-        printf("No valid samples found.\n");
+        printf("[ERROR] No valid samples found.\n");
         free(rows_array);
         return 1;
     }
@@ -153,7 +157,7 @@ int analyzer(const char *input_file, const char *output_file) {
     /* Write report */
     FILE *out = fopen(output_file, "w");
     if (!out) {
-        printf("Could not create output file: %s\n", output_file);
+        printf("[ERROR] Could not create output file: %s\n", output_file);
         free(rows_array);
         return 1;
     }
@@ -165,7 +169,7 @@ int analyzer(const char *input_file, const char *output_file) {
     anomaly_detection(rows_array, count, output_file);
 
     free(rows_array);
-    printf("[OK] Analyzer: analyzer ran successfully\n");
+    printf("[OK] Analyzer: analyzer ran successfully\n\n");
     return 0;
 }
 
@@ -173,32 +177,26 @@ int analyzer(const char *input_file, const char *output_file) {
    Min / Max / Avg
  */
 double find_min(SensorRow arr[], int length, double (*selector)(SensorRow)) {
-    printf("[INFO] Analyzer: find_min is running.\n");
     double min = selector(arr[0]);
     for (int i = 1; i < length; i++) {
         double v = selector(arr[i]);
         if (v < min) min = v;
     }
-    printf("[OK] Analyzer: find_min ran successfully\n");
     return min;
 }
 
 double find_max(SensorRow arr[], int length, double (*selector)(SensorRow)) {
-    printf("[INFO] Analyzer: find_max is running.\n");
     double max = selector(arr[0]);
     for (int i = 1; i < length; i++) {
         double v = selector(arr[i]);
         if (v > max) max = v;
     }
-    printf("[OK] Analyzer: find_max ran successfully\n");
     return max;
 }
 
 double find_avg(SensorRow arr[], int length, double (*selector)(SensorRow)) {
-    printf("[INFO] Analyzer: find_avg is running.\n");
     double sum = 0.0;
     for (int i = 0; i < length; i++)
         sum += selector(arr[i]);
-    printf("[OK] Analyzer: find_avg ran successfully\n");
     return sum / length;
 }

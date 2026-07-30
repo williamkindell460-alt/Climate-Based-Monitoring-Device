@@ -1,5 +1,6 @@
 #ifndef ANALYZER_H
 #define ANALYZER_H
+#include <stdio.h>
 
 typedef struct {
     double time;

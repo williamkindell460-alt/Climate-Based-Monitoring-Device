@@ -2,9 +2,15 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import csv
 import os
+import glob
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SAMPLES_DIR = os.path.join(BASE_DIR, "..", "samples")
+# Determine project root dynamically
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.abspath(os.path.join(SCRIPT_DIR, "../.."))
+
+# Build portable paths
+CSV_DIR = os.path.join(PROJECT_ROOT, "01_firmware", "real_output")
+OUT_BIN = os.path.join(PROJECT_ROOT, "03_data", "output_data", "output.bin")
 
 filename = "" 
 fields = []
@@ -17,6 +23,7 @@ air_qual= []
 co2= []
 voc= []
 
+print("==================== Plot Data ====================\n")
 print("[INFO] plot_data.py is running\n")
 
 def plot_data(filename):
@@ -26,9 +33,9 @@ def plot_data(filename):
         for row in csvreader:
             rows.append(row)
 
-        print("Total no. of rows: %d" % csvreader.line_num)
+        print("[OUTPUT] Total no. of rows: %d" % csvreader.line_num + "\n")
 
-    print('Field names are: ' + ', '.join(fields))
+    print('[OUTPUT] Field names are: ' + ', '.join(fields) + "\n")
 
     timestamps = [datetime.strptime(row[0], "%Y-%m-%dT%H:%M:%SZ") for row in rows]
 
@@ -73,7 +80,16 @@ def plot_data(filename):
 
     plt.tight_layout()
     plt.show()
-filename = os.path.join(SAMPLES_DIR, "sample_log_01.csv")
+
+csv_files = glob.glob(os.path.join(CSV_DIR, "*.csv"))
+if not csv_files:
+    print(f"[ERROR] No CSV files found in {CSV_DIR}")
+    exit(1)
+
+latest_csv = max(csv_files, key=os.path.getmtime)
+print(f"Newest CSV detected: {latest_csv}")
+
+filename = os.path.join(CSV_DIR, latest_csv)
 plot_data(filename)
 print("[OK] plot_data.py successfully ran\n")
 
