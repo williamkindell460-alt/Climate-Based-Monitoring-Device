@@ -75,7 +75,7 @@ __pycache__/
 # Logs
 *.log
 
-# Sensor driver files (REMOVE these if you want them tracked!)
+# Sensor driver files
 # bme68x.c
 # bme68x.h
 # bme68x_defs.h

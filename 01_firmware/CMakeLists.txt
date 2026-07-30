@@ -2,10 +2,11 @@ add_executable(main
     src/main.c
 )
 
-target_include_directories(main PRIVATE
+target_include_directories(firmware PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_SOURCE_DIR}/02_host_tool/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/../02_host_tool/include
 )
+
 
 target_link_libraries(main PRIVATE host_tool)
 
