@@ -29,8 +29,7 @@ This project is one born out of the current state of the climate, specifically t
 
 ### 2. Configure with CMake
 - Generate build files
-- - ```bash 
-cmake -B build -DCMAKE_BUILD_TYPE=Release
+- - ```bash cmake -B build -DCMAKE_BUILD_TYPE=Release
 - CMake will:
 - - Detect your Python 3 interpreter
 - - Define PYTHON_EXECUTABLE automatically
@@ -42,8 +41,7 @@ cmake -B build -DCMAKE_BUILD_TYPE=Release
 - - The C-based host analysis tool
 ### 4. Run the Full Pipeline (`main`)
 - The full pipeline is executed using Ninja:
-- - ```bash cd build
-ninja run
+- - ```bash cd build ninja run
 - This will:
 - - Read CSV files from 01_firmware/real_output/
 - - Generate output.bin
