@@ -10,8 +10,7 @@ int main(void)
     struct bme68x_heatr_conf heatr_conf;
     struct bme68x_data data;
 
-    system("\"C:/Users/jrkin/.local/bin/python3.14.exe\" "
-           "../../03_data/src/sensor_reader.py");
+    system("\"C:/Users/jrkin/.local/bin/python3.14.exe\" ../../03_data/src/sensor_reader.py");
 
     analyzer("../../03_data/output_data/output.bin",
              "../../03_data/output_data/analysis_output.txt");
