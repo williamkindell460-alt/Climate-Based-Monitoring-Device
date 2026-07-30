@@ -29,7 +29,7 @@ This project is one born out of the current state of the climate, specifically t
 
 ### 2. Configure with CMake
 - Generate build files
-- - ```bash cmake -B build -DCMAKE_BUILD_TYPE=Release
+- ```bash cmake -B build -DCMAKE_BUILD_TYPE=Release
 - CMake will:
 - - Detect your Python 3 interpreter
 - - Define PYTHON_EXECUTABLE automatically
