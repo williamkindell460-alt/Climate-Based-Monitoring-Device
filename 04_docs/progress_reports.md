@@ -27,7 +27,7 @@
 - Host tool architecture stabilized [x]
 - Project structure elevated to professional quality [x]
 # Day 5
-# Tasks Completed
+## Tasks Completed
 - Example outputs and plots [x]
 - - a real trend plot
 - - a real anomaly plot
@@ -39,3 +39,5 @@
 - - short explanation of algorithm 
 - Add a CLI flag parser [x]
 - - a --stats and --anomalies
+# Day 6
+## Tasks Completed

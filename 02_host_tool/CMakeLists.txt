@@ -34,9 +34,12 @@ target_include_directories(pipeline PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-set_target_properties(pipeline PROPERTIES LINK_FLAGS "-mconsole")
+if (WIN32)
+    set_target_properties(pipeline PROPERTIES LINK_FLAGS "-mconsole")
+endif()
 
 target_link_libraries(pipeline PRIVATE host_tool)
+
 
 add_custom_target(run
     COMMAND pipeline
