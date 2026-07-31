@@ -14,7 +14,6 @@ target_include_directories(host_tool PUBLIC
 
 add_executable(test_minmax
     tests/test_minmax.c
-    tests/unity.c
 )
 
 target_include_directories(test_minmax PRIVATE
