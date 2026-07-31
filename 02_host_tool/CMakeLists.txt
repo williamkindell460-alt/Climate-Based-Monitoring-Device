@@ -14,12 +14,15 @@ target_include_directories(host_tool PUBLIC
 
 add_executable(test_minmax
     tests/test_minmax.c
+    third_party/unity/unity.c
 )
 
 target_include_directories(test_minmax PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
     ${CMAKE_CURRENT_SOURCE_DIR}/tests
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party/unity
 )
+
 
 target_link_libraries(test_minmax PRIVATE host_tool)
 
