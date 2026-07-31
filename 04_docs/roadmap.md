@@ -47,6 +47,7 @@
 - Measure sleep current + active current
 - Estimate battery life
 - Document power budget
+- **Add simple Wi‑Fi log transfer (ESP32 HTTP endpoint serving /latest.csv)**
 - **Firmware completion**
 - **Hardware completion**
 

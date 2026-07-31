@@ -41,3 +41,16 @@
 - - a --stats and --anomalies
 # Day 6
 ## Tasks Completed
+- Add pipeline tests  
+  - Create end‑to‑end tests that feed sample CSV logs into the host pipeline  
+  - Validate trend detection, anomaly detection, and CLI flag behavior (`--stats`, `--anomalies`)  
+  - Add golden‑file comparisons for stable output verification  
+- Add ASCII sparkline visualization 
+  - Implement lightweight terminal sparklines using normalized values and block characters
+  - Integrate sparklines into `--stats` mode for temperature, humidity, pressure, AQI, CO₂, and VOC  
+- Add host‑side performance benchmark (parse speed, memory use)
+  - Add a `--benchmark` flag to measure CSV parsing throughput, trend/anomaly compute time, and memory footprint  
+  - Print structured benchmark results for reproducibility  
+- Add unit tests (Unity)
+  - Expand pure‑logic tests for trend computation, anomaly scoring, min/max helpers, and environmental assessments  
+  - Add a combined test runner and integrate with CI  
