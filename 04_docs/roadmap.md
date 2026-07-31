@@ -18,16 +18,19 @@
 - Finalize host MVP 
     [x]
 - Add example outputs + plots 
-- Add tests
+    [x]
+- Add host-side CLI flags (-plot, -stats, -anomalies) 
+    [x]
+- Add documentation for host tool 
+    [x]
+- Add pipeline tests
 - Add ASCII sparkline visualization
-- Add host-side CLI flags (-plot, -stats, -anomalies)
-- Add documentation for host tool
 - Add host-side performance benchmark (parse speed, memory use)
-- Add error handling for corrupted logs
 - Add unit tests (Unity)
 - **Host tool completion**
 
 # Second week
+- Add error handling for corrupted logs
 - Scaffold firmware core (drivers, sleep cycle, error codes)
 - Wire sensors (BME680 + CCS811)
 - Validate raw readings
