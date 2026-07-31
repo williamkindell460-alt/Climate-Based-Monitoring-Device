@@ -28,8 +28,13 @@ int run_pipeline() {
     sensor_ok = 1;
 
     /* ---------------- ANALYZER ---------------- */
-    analyzer("../../03_data/output_data/output.bin",
-             "../../03_data/output_data/analysis_output.txt");
+    const char *args[] = {
+        "analyzer",
+        "../../03_data/output_data/output.bin",
+        "../../03_data/output_data/analysis_output.txt"};
+
+    analyzer(3, args);
+
     analyzer_ok = 1;
 
     /* ---------------- PLOT DATA ---------------- */

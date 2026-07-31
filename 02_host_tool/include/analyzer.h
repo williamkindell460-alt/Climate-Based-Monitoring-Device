@@ -23,6 +23,6 @@ double find_min(SensorRow arr[], int length, double (*selector)(SensorRow));
 double find_max(SensorRow arr[], int length, double (*selector)(SensorRow));
 double find_avg(SensorRow arr[], int length, double (*selector)(SensorRow));
 
-int analyzer(const char *input_file, const char *output_file);
+int analyzer(int argc, const char *argv[]);
 
 #endif
