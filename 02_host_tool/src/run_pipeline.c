@@ -2,7 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int run_pipeline() {
+#define MODE_DEFAULT 0   // stats + anomalies
+#define MODE_ANOMALIES 1 // anomalies only
+#define MODE_STATS 2     // stats only
+
+int run_pipeline(int mode) {
 
     printf("====================== RUN PIPELINE ======================\n\n");
     printf("[INFO] Run Pipeline: pipeline is running.\n\n");
@@ -28,12 +32,37 @@ int run_pipeline() {
     sensor_ok = 1;
 
     /* ---------------- ANALYZER ---------------- */
-    const char *args[] = {
+    const char *args_default[] = {
         "analyzer",
         "../../03_data/output_data/output.bin",
         "../../03_data/output_data/analysis_output.txt"};
 
-    analyzer(3, args);
+    const char *args_anom[] = {
+        "analyzer",
+        "../../03_data/output_data/output.bin",
+        "../../03_data/output_data/analysis_output.txt",
+        "--anomalies"};
+
+    const char *args_stats[] = {
+        "analyzer",
+        "../../03_data/output_data/output.bin",
+        "../../03_data/output_data/analysis_output.txt",
+        "--stats"};
+
+    /* Select analyzer mode */
+    switch (mode) {
+    case MODE_ANOMALIES:
+        analyzer(4, args_anom);
+        break;
+
+    case MODE_STATS:
+        analyzer(4, args_stats);
+        break;
+
+    default: // MODE_DEFAULT
+        analyzer(3, args_default);
+        break;
+    }
 
     analyzer_ok = 1;
 
