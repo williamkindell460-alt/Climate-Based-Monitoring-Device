@@ -29,16 +29,8 @@
 # Day 5
 ## Tasks Completed
 - Example outputs and plots [x]
-- - a real trend plot
-- - a real anomaly plot
 - "Host Tool Showcase" section [x]
-- - sample input
-- - sample output
-- - anomaly explanation
-- - screenshot of plot
-- - short explanation of algorithm 
 - Add a CLI flag parser [x]
-- - a --stats and --anomalies
 # Day 6
 ## Tasks Completed
 - Add pipeline tests  
