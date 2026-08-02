@@ -13,4 +13,5 @@
 #include <stdio.h>
 
 void app_main(void) {
+    return "App main is working";
 }
