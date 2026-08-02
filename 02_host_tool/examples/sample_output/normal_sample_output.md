@@ -1,42 +1,70 @@
 # Climate-Based Monitoring Device — Host Tool Analysis
 
-**Input file:** `../../03_data/output_data/output.bin`  
+**Input file:** `C:/Users/[User name]/[Another folder (not required)]/Climate-Based-Monitoring-Device/02_host_tool/tests/output_data/output.bin`  
 **Samples processed:** 10  
-**Time range:** 18.00 minutes
+**Time range:** 18.00 minutes  
 
 ---
 
 ## Summary Statistics
 
-### Temperature (C)
-- Min: -10.00  
-- Max: 200.00  
-- Average: 62.86
+### Temperature (°C)
+- **Min:** 24.30  
+- **Max:** 24.80  
+- **Average:** 24.51  
+
+**Sparkline:** `█▆▅▅▃▃▂▂▁▁`
+
+---
 
 ### Humidity (%)
-- Min: 0.50  
-- Max: 130.00  
-- Average: 44.83
+- **Min:** 41.20  
+- **Max:** 42.60  
+- **Average:** 41.92  
+
+**Sparkline:** `▁▁▂▃▄▄▆▆▇█`
+
+---
 
 ### Pressure (hPa)
-- Min: 870.00  
-- Max: 1200.00  
-- Average: 991.26
+- **Min:** 1013.50  
+- **Max:** 1014.80  
+- **Average:** 1014.23  
+
+**Sparkline:** `▁▂▃▄▄▅▅▆▇█`
+
+---
 
 ### Air Quality Index (AQI)
-- Min: 5.00  
-- Max: 999.00  
-- Average: 321.30
+- **Min:** 44.00  
+- **Max:** 49.00  
+- **Average:** 46.50  
 
-### CO2 (ppm)
-- Min: 150.00  
-- Max: 10000.00  
-- Average: 3012.40
+**Sparkline:** `█▆▆▅▅▃▃▂▂▁`
+
+---
+
+### CO₂ (ppm)
+- **Min:** 420.00  
+- **Max:** 429.00  
+- **Average:** 424.30  
+
+**Sparkline:** `▁▁▁▃▄▄▄▆▇█`
+
+---
 
 ### VOC (ppb)
-- Min: 2.00  
-- Max: 20000.00  
-- Average: 6463.60
+- **Min:** 40.00  
+- **Max:** 49.00  
+- **Average:** 44.50  
+
+**Sparkline:** `▁▂▁▃▄▄▅▆▇█`
+
+---
+
+## Anomaly Detection
+
+**No anomalies detected across all samples.**
 
 ---
 
@@ -44,129 +72,36 @@
 
 **Change over 18.00 minutes:**
 
-- **Temperature:** Falling (Δ = -0.50°C)  
-- **Humidity:** Increasing (Δ = +1.40%)  
-- **Pressure:** Rising (Δ = +1.30 hPa)  
-- **AQI:** Decreasing (Δ = -5.00)  
-- **CO2:** Increasing (Δ = +9.00 ppm)  
-- **VOC:** Increasing (Δ = +9.00 ppb)
+- **Temperature:** Falling (Δ = −0.50 °C)  
+- **Humidity:** Increasing (Δ = +1.40 %)  
+- **Pressure:** Rising (Δ = +1.30 hPa)  
+- **AQI:** Decreasing (Δ = −5.00)  
+- **CO₂:** Increasing (Δ = +9.00 ppm)  
+- **VOC:** Increasing (Δ = +9.00 ppb)
 
 ---
 
 ## Overall Assessment
 
+### Environment
 Environment shows notable changes in one or more metrics.
 
-**Weather Interpretation:**
-- Atmospheric pressure is rising, indicating stabilizing or improving weather.
-- Temperature stable.
-- Humidity rising; air may feel more humid.
+#### Weather Interpretation
+- Atmospheric pressure is rising → stabilizing or improving weather.  
+- Temperature stable.  
+- Humidity rising → air may feel more humid.
 
-**Air Quality & Pollution:**
-- AQI unhealthy; pollution or smoke likely present.
-- CO₂ high; poor ventilation or strong pollution source.
-- VOC levels elevated; industrial pollution or chemical sources likely.
+#### Air Quality & Pollution
+- AQI indicates good outdoor air quality.  
+- CO₂ levels match clean outdoor baseline.  
+- VOC levels typical of rural outdoor air.
 
-**Comfort Assessment:**
-- Temperature outside typical comfort range.
+#### Comfort Assessment
+- Temperature within comfortable indoor range.  
 - Humidity within comfortable indoor range.
 
-**Environmental Stress Indicators:**
-- Elevated pollution levels may cause irritation or discomfort.
-
----
-
-## Anomaly Detection
-
-- Hard anomaly: Impossible temperature at sample 1 (85.00°C)  
-- Hard anomaly: Impossible AQI at sample 2 (600.00)  
-- Hard anomaly: Impossible temperature at sample 3 (200.00°C)  
-- Hard anomaly: Impossible humidity at sample 3 (130.00%)  
-- Hard anomaly: Impossible pressure at sample 3 (1200.00 hPa)  
-- Hard anomaly: Impossible CO₂ at sample 3 (200.00 ppm)  
-- Hard anomaly: Impossible AQI at sample 4 (999.00)  
-- Hard anomaly: Impossible temperature at sample 6 (70.00°C)  
-- Hard anomaly: Impossible pressure at sample 7 (1100.00 hPa)  
-- Hard anomaly: Impossible CO₂ at sample 7 (150.00 ppm)  
-- Hard anomaly: Impossible temperature at sample 8 (150.00°C)  
-- Hard anomaly: Impossible AQI at sample 8 (700.00)
-
-- Environmental anomaly: High AQI at sample 1 (300.00)  
-- Environmental anomaly: Elevated VOC at sample 1 (9000.00 ppb)  
-- Environmental anomaly: High CO₂ at sample 1 (2500.00 ppm)  
-- Environmental anomaly: Low pressure at sample 1 (950.00 hPa) — storm conditions possible  
-- Environmental anomaly: High AQI at sample 2 (600.00)  
-- Environmental anomaly: Elevated VOC at sample 2 (12000.00 ppb)  
-- Environmental anomaly: High CO₂ at sample 2 (5000.00 ppm)  
-- Environmental anomaly: Low pressure at sample 2 (870.00 hPa) — storm conditions possible  
-- Environmental anomaly: High AQI at sample 4 (999.00)  
-- Environmental anomaly: Elevated VOC at sample 4 (15000.00 ppb)  
-- Environmental anomaly: High CO₂ at sample 4 (10000.00 ppm)  
-- Environmental anomaly: High AQI at sample 6 (450.00)  
-- Environmental anomaly: Elevated VOC at sample 6 (8000.00 ppb)  
-- Environmental anomaly: High CO₂ at sample 6 (3000.00 ppm)  
-- Environmental anomaly: Low pressure at sample 6 (890.00 hPa) — storm conditions possible  
-- Environmental anomaly: Elevated VOC at sample 7 (500.00 ppb)  
-- Environmental anomaly: High AQI at sample 8 (700.00)  
-- Environmental anomaly: Elevated VOC at sample 8 (20000.00 ppb)  
-- Environmental anomaly: High CO₂ at sample 8 (8000.00 ppm)  
-- Environmental anomaly: Low pressure at sample 8 (880.00 hPa) — storm conditions possible
-
-- Trend anomaly: Temperature jump at sample 1 (Δ = 60.20°C)  
-- Trend anomaly: Humidity jump at sample 1 (Δ = -31.20%)  
-- Trend anomaly: Pressure jump at sample 1 (Δ = -63.50 hPa)  
-- Trend anomaly: AQI jump at sample 1 (Δ = 251.00)  
-- Trend anomaly: CO₂ jump at sample 1 (Δ = 2080.00 ppm)  
-- Trend anomaly: VOC jump at sample 1 (Δ = 8960.00 ppb)  
-- Trend anomaly: Temperature jump at sample 2 (Δ = -95.00°C)  
-- Trend anomaly: Humidity jump at sample 2 (Δ = -9.50%)  
-- Trend anomaly: Pressure jump at sample 2 (Δ = -80.00 hPa)  
-- Trend anomaly: AQI jump at sample 2 (Δ = 300.00)  
-- Trend anomaly: CO₂ jump at sample 2 (Δ = 2500.00 ppm)  
-- Trend anomaly: VOC jump at sample 2 (Δ = 3000.00 ppb)  
-- Trend anomaly: Temperature jump at sample 3 (Δ = 210.00°C)  
-- Trend anomaly: Humidity jump at sample 3 (Δ = 129.50%)  
-- Trend anomaly: Pressure jump at sample 3 (Δ = 330.00 hPa)  
-- Trend anomaly: AQI jump at sample 3 (Δ = -595.00)  
-- Trend anomaly: CO₂ jump at sample 3 (Δ = -4800.00 ppm)  
-- Trend anomaly: VOC jump at sample 3 (Δ = -11998.00 ppb)  
-- Trend anomaly: Temperature jump at sample 4 (Δ = -150.00°C)  
-- Trend anomaly: Humidity jump at sample 4 (Δ = -50.00%)  
-- Trend anomaly: Pressure jump at sample 4 (Δ = -220.00 hPa)  
-- Trend anomaly: AQI jump at sample 4 (Δ = 994.00)  
-- Trend anomaly: CO₂ jump at sample 4 (Δ = 9800.00 ppm)  
-- Trend anomaly: VOC jump at sample 4 (Δ = 14998.00 ppb)  
-- Trend anomaly: Temperature jump at sample 5 (Δ = -25.50°C)  
-- Trend anomaly: Humidity jump at sample 5 (Δ = -38.00%)  
-- Trend anomaly: Pressure jump at sample 5 (Δ = 34.30 hPa)  
-- Trend anomaly: AQI jump at sample 5 (Δ = -953.00)  
-- Trend anomaly: CO₂ jump at sample 5 (Δ = -9575.00 ppm)  
-- Trend anomaly: VOC jump at sample 5 (Δ = -14955.00 ppb)  
-- Trend anomaly: Temperature jump at sample 6 (Δ = 45.50°C)  
-- Trend anomaly: Humidity jump at sample 6 (Δ = -37.00%)  
-- Trend anomaly: Pressure jump at sample 6 (Δ = -124.30 hPa)  
-- Trend anomaly: AQI jump at sample 6 (Δ = 404.00)  
-- Trend anomaly: CO₂ jump at sample 6 (Δ = 2575.00 ppm)  
-- Trend anomaly: VOC jump at sample 6 (Δ = 7955.00 ppb)  
-- Trend anomaly: Temperature jump at sample 7 (Δ = -60.00°C)  
-- Trend anomaly: Humidity jump at sample 7 (Δ = 90.00%)  
-- Trend anomaly: Pressure jump at sample 7 (Δ = 210.00 hPa)  
-- Trend anomaly: AQI jump at sample 7 (Δ = -430.00)  
-- Trend anomaly: CO₂ jump at sample 7 (Δ = -2850.00 ppm)  
-- Trend anomaly: VOC jump at sample 7 (Δ = -7500.00 ppb)  
-- Trend anomaly: Temperature jump at sample 8 (Δ = 140.00°C)  
-- Trend anomaly: Humidity jump at sample 8 (Δ = -93.00%)  
-- Trend anomaly: Pressure jump at sample 8 (Δ = -220.00 hPa)  
-- Trend anomaly: AQI jump at sample 8 (Δ = 680.00)  
-- Trend anomaly: CO₂ jump at sample 8 (Δ = 7850.00 ppm)  
-- Trend anomaly: VOC jump at sample 8 (Δ = 19500.00 ppb)  
-- Trend anomaly: Temperature jump at sample 9 (Δ = -125.70°C)  
-- Trend anomaly: Humidity jump at sample 9 (Δ = 40.60%)  
-- Trend anomaly: Pressure jump at sample 9 (Δ = 134.80 hPa)  
-- Trend anomaly: AQI jump at sample 9 (Δ = -656.00)  
-- Trend anomaly: CO₂ jump at sample 9 (Δ = -7571.00 ppm)  
-- Trend anomaly: VOC jump at sample 9 (Δ = -19951.00 ppb)
-
+#### Environmental Stress Indicators
+- No signs of environmental stress detected.
 
 ![Trend and anomaly plots showing temperature, humidity, pressure, AQI, CO₂, and VOC over 18 minutes](../images/normal_sample_plot.png)
 

@@ -1,6 +1,8 @@
 add_library(firmware
     src/sensors.c
-    src/init_dev.c
+    src/logging.c
+    main/main.c
+    src/esp32_firmware/app_main.c
 )
 
 target_include_directories(firmware PRIVATE

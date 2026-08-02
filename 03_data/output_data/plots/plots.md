@@ -1,1 +1,1 @@
-# This is where the plots for real_output will go
+# This is where the plots for 01_firmware/real_output will go
