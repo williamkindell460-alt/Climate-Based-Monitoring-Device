@@ -1,0 +1,1 @@
+# This folder is the output of tests and is completely unrelated to the 01_firmware/real_output folder

@@ -1,0 +1,59 @@
+Climate-Based Monitoring Device — Host Tool Analysis
+====================================================
+
+Input file: C:/Users/jrkin/Documents/Climate-Based-Monitoring-Device/02_host_tool/tests/output_data/output.bin
+Samples processed: 10
+Time range: 18.00 minutes
+----------------------------------------------------
+Summary Statistics
+----------------------------------------------------
+
+Temperature (C)
+Min: 24.30
+Max: 24.80
+Average: 24.51
+
+Sparkline: █▆▅▅▃▃▂▂▁▁
+
+Humidity (%)
+Min: 41.20
+Max: 42.60
+Average: 41.92
+
+Sparkline: ▁▁▂▃▄▄▆▆▇█
+
+Pressure (hPa)
+Min: 1013.50
+Max: 1014.80
+Average: 1014.23
+
+Sparkline: ▁▂▃▄▄▅▅▆▇█
+
+Air Quality Index (AQI)
+Min: 44.00
+Max: 49.00
+Average: 46.50
+
+Sparkline: █▆▆▅▅▃▃▂▂▁
+
+CO2 (ppm)
+Min: 420.00
+Max: 429.00
+Average: 424.30
+
+Sparkline: ▁▁▁▃▄▄▄▆▇█
+
+VOC (ppb)
+Min: 40.00
+Max: 49.00
+Average: 44.50
+
+Sparkline: ▁▂▁▃▄▄▅▆▇█
+
+----------------------------------------------------
+Anomaly Detection
+----------------------------------------------------
+
+No anomalies detected across all samples.
+
+

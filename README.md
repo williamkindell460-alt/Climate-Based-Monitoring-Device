@@ -22,6 +22,25 @@ This project is one born out of the current state of the climate, specifically t
   Automatically detected by CMake via:
   ```cmake find_package(Python3 REQUIRED COMPONENTS Interpreter) 
   add_compile_definitions(PYTHON_EXECUTABLE="${Python3_EXECUTABLE}") ``
+- Ninja (recommended build system but not required)
+  - Ninja provides fast incremental builds and works seamlessly with CMake.
+  - Windows (MSYS2 MinGW64):
+      - ```bash
+        pacman -S mingw-w64-x86_64-ninja
+        ```
+  - Linux (Debian/Ubuntu):
+    - ```bash
+      sudo apt install ninja-build
+      ```
+  - macOS (Homebrew)
+    - ```bash
+      brew install ninja
+      ```
+  - Generate a Ninja build:
+    - Route to the main folder of the project: "Climate-Based-Monitoring-Device"
+      - Typically looks like this: ```bash cd /c/Users/[User name]/[Another folder, in my case: Documents]/Climate-Based-Monitoring-Device ```
+    - ```bash cmake -G "Ninja" -B build```
+    - ```bash ninja -C build```
 ### 1. Clone the Repository
 - ```bash 
     git clone https://github.com/williamkindell460-alt/Climate-Based-Monitoring-Device.git 

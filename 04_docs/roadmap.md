@@ -23,11 +23,15 @@
     [x]
 - Add documentation for host tool 
     [x]
-- Add pipeline tests
-- Add ASCII sparkline visualization
-- Add host-side performance benchmark (parse speed, memory use)
-- Add unit tests (Unity)
-- **Host tool completion**
+- Add pipeline tests 
+    [x]
+- Add host-side performance benchmark (parse speed, memory use) 
+    [x]
+- Add unit tests (Unity) 
+    [x]
+- Add ASCII sparkline visualization 
+    [x]
+- **Host tool completion** [x]
 
 # Second week
 - Add error handling for corrupted logs

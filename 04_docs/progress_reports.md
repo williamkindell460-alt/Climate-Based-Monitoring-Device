@@ -30,19 +30,25 @@
 ## Tasks Completed
 - Example outputs and plots [x]
 - "Host Tool Showcase" section [x]
+  - This is the examples folder in 02_host_tool
 - Add a CLI flag parser [x]
+  - Route to the build folder.
+  - To run only anomalies: ```bash ninja run_anomalies``` or ```bash ./02_host_tool/pipeline.exe ../03_data/output_data/output.bin ../03_data/output_data/analysis_output.txt --anomalies```
+    - These results are outputed in the normal 03_data/output_data folder
+  - To run only statistics: ```bash ninja run_stats``` or ```bash ./02_host_tool/pipeline.exe ../03_data/output_data/output.bin ../03_data/output_data/analysis_output.txt --stats ```
+    - These results are outputed in the normal 03_data/output_data folder
+  - To run both: ```bash ninja run``` or ```bash ./02_host_tool/pipeline.exe ../03_data/output_data/output.bin ../03_data/output_data/analysis_output.txt``` or ```bash ./..05_scripts/run_pipeline.sh```
+    - These results are outputed in the normal ```bash 03_data/output_data folder```
 # Day 6
 ## Tasks Completed
-- Add pipeline tests  
-  - Create end‑to‑end tests that feed sample CSV logs into the host pipeline  
-  - Validate trend detection, anomaly detection, and CLI flag behavior (`--stats`, `--anomalies`)  
-  - Add golden‑file comparisons for stable output verification  
-- Add ASCII sparkline visualization 
-  - Implement lightweight terminal sparklines using normalized values and block characters
-  - Integrate sparklines into `--stats` mode for temperature, humidity, pressure, AQI, CO₂, and VOC  
-- Add host‑side performance benchmark (parse speed, memory use)
-  - Add a `--benchmark` flag to measure CSV parsing throughput, trend/anomaly compute time, and memory footprint  
-  - Print structured benchmark results for reproducibility  
-- Add unit tests (Unity)
-  - Expand pure‑logic tests for trend computation, anomaly scoring, min/max helpers, and environmental assessments  
-  - Add a combined test runner and integrate with CI  
+- Add unit tests (Unity) [x]
+- Add pipeline tests [x]
+  - To run this pipeline tests, you need the MINW64 bash terminal.
+  - Route to the build folder.
+  - To run the test, do ```bash ninja run_tests``` or ```bash ./../05_scripts/run_tests.sh```
+    - These results are outputed in the ```bash 02_host_tool\tests\output_data``` folder
+- Add host‑side performance benchmark (parse speed, memory use) [x]
+  - To run the benchmark, you need the MINW64 bash terminal.
+  - Route to the build folder.
+  - Benchmark by running: ```bash ninja run_benchmark``` or ```bash ./02_host_tool/pipeline.exe ../03_data/output_data/output.bin ../03_data/output_data/analysis_output.txt --benchmark```
+- Add ASCII sparkline visualization  [x]
