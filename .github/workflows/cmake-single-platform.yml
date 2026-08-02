@@ -35,8 +35,8 @@ jobs:
       run: |
         cppcheck --enable=all --error-exitcode=1 --library=std \
           --suppress=missingIncludeSystem \
-          -I 01_firmware/include -I 02_host_tool/include \
-          01_firmware/src
+          -I 01_firmware/include -I 01_firmware/src/esp32_firmware \
+          01_firmware/main
 
     - name: Build program
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
