@@ -119,30 +119,31 @@ Includes:
 - The path to the generated plot PNG file  
 
 ### Output  
-A fully formatted analysis report containing statistics, sparklines, anomaly results, trend summaries, and environmental interpretation — allowing users to understand system behavior without inspecting raw data.
+- A fully formatted analysis report containing statistics, sparklines, anomaly results, trend summaries, and environmental interpretation, allowing users to understand system behavior without inspecting raw data.
 
 ## Execution Flow  
-The host tool processes data in a strictly ordered sequence, ensuring each stage produces the artifacts required by the next. The flow reflects the real behavior of the system as implemented in the sensor reader, analyzer, plot generator, and summary writer.
+- The host tool processes data in a strictly ordered sequence, ensuring each stage produces the artifacts required by the next. 
+- The flow reflects the real behavior of the system as implemented in the sensor reader, analyzer, plot generator, and summary writer.
 
-1. **Sensor Data Ingestion**  
-   - The newest CSV file is located and parsed.  
-   - Timestamps and sensor values are normalized and exported as a structured binary file (`output.bin`).  
+    1. **Sensor Data Ingestion**  
+    - The newest CSV file is located and parsed.  
+    - Timestamps and sensor values are normalized and exported as a structured binary file (`output.bin`).  
 
-2. **Data Analysis**  
-   - The binary file is read and processed.  
-   - Statistics, sparklines, anomalies, and trends are computed.  
-   - A detailed environmental interpretation is generated.  
+    2. **Data Analysis**  
+    - The binary file is read and processed.  
+    - Statistics, sparklines, anomalies, and trends are computed.  
+    - A detailed environmental interpretation is generated.  
 
-3. **Plot Generation**  
-   - Sensor channels are plotted as synchronized time‑series graphs.  
-   - A timestamped PNG file (e.g., `plot_2026-08-01_17-34-52.png`) is saved to the portable output directory:  
-     ```
-     <PROJECT_ROOT>/03_data/output_data/plots/
-     ```  
+    3. **Plot Generation**  
+    - Sensor channels are plotted as synchronized time‑series graphs.  
+    - A timestamped PNG file (e.g., `plot_2026-08-01_17-34-52.png`) is saved to the portable output directory:  
+        ```
+        <PROJECT_ROOT>/03_data/output_data/plots/
+        ```  
 
-4. **Summary Output**  
-   - All results are consolidated into a human‑readable report.  
-   - The summary includes statistics, anomalies, trends, interpretations, and paths to generated artifacts.  
-   - The pipeline confirms successful completion.
+    4. **Summary Output**  
+    - All results are consolidated into a human‑readable report.  
+    - The summary includes statistics, anomalies, trends, interpretations, and paths to generated artifacts.  
+    - The pipeline confirms successful completion.
 
-This ordered flow ensures that raw device data is transformed into a complete, interpretable environmental analysis package.
+- This ordered flow ensures that raw device data is transformed into a complete, interpretable environmental analysis package.
