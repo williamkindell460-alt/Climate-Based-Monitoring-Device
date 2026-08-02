@@ -90,8 +90,22 @@ def plot_data(filename):
 
 
     plt.tight_layout()
+
+    date = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
+    output_dir = os.path.join(
+        PROJECT_ROOT,
+        "03_data",
+        "output_data",
+        "plots"
+    )
+
+    os.makedirs(output_dir, exist_ok=True)
+
+    output_path = os.path.join(output_dir, f"plot_{date}.png")
+
     if not TEST_MODE:
-        plt.show()
+        plt.savefig(output_path)
     else:
         print(COL_GREEN + "[OK] plot_data.py ran successfully (test mode, no plot shown)" + COL_RESET)
 

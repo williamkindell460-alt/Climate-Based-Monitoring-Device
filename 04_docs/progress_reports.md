@@ -52,3 +52,10 @@
   - Route to the build folder.
   - Benchmark by running: ```bash ninja run_benchmark``` or ```bash ./02_host_tool/pipeline.exe ../03_data/output_data/output.bin ../03_data/output_data/analysis_output.txt --benchmark```
 - Add ASCII sparkline visualization  [x]
+# Day 7
+## Tasks completed
+- Altered some of the logic to better reflect the goals of the project [x]
+- Cleaned up the unity unit tests and got it working properly [x]
+- Made color visualization in the console [x]
+- Generally, today was just polishing features [x]
+- The host tool is now 100% complete [x]

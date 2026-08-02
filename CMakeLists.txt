@@ -41,6 +41,8 @@ add_custom_target(run_tests
     COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
+#The above test runs ctest --output-on-failure, and tests all tests defined in the Register Tests Here section
+# -------------------- Individual Pipeline Mode Targets (TEST MODE) --------------------
 add_custom_target(run_test_pipeline_default
     COMMAND ${CMAKE_CTEST_COMMAND} -R pipeline_default --output-on-failure
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
@@ -49,8 +51,7 @@ add_custom_target(run_test_pipeline_trends_anomalies
     COMMAND ${CMAKE_CTEST_COMMAND} -R pipeline_trends_anomalies  --output-on-failure
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
-
-# -------------------- Individual Pipeline Mode Targets (TEST MODE) --------------------
+# Above tests run in ctest, below tests run the sample outputs without ctest testing
 add_custom_target(test_only_pipeline_default
     DEPENDS pipeline
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
