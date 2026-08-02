@@ -73,3 +73,4 @@ This project is one born out of the current state of the climate, specifically t
 - - produce analysis_output.txt
 - - Generate plots
 - - Print a summary of all stages
+- Additional commands can be found in progress_reports.md
