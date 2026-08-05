@@ -49,28 +49,28 @@ This project is one born out of the current state of the climate, specifically t
 
 ### 2. Configure with CMake
 - Generate build files
-- - ```bash cmake -B build -DCMAKE_BUILD_TYPE=Release ```
+  - ```bash cmake -B build -DCMAKE_BUILD_TYPE=Release ```
 
 - CMake will:
-- - Detect your Python 3 interpreter
-- - Define PYTHON_EXECUTABLE automatically
-- - Generate platform-specific build files
+  - Detect your Python 3 interpreter
+  - Define PYTHON_EXECUTABLE automatically
+  - Generate platform-specific build files
 ### 3. Build the project
 - ```bash cmake --build build --config Release ```
 - This compiles:
-- -  The ESP32 firmware logic
-- - The C-based host analysis tool
+  -  The ESP32 firmware logic
+  - The C-based host analysis tool
 ### 4. Run the Full Pipeline (`main`)
 - The full pipeline is executed using Ninja:
-- - ```bash 
+  - ```bash 
     cd build
     ninja run 
     ```
 - This will:
-- - Read CSV files from 01_firmware/real_output/
-- - Generate output.bin
-- - Analyze the binary data
-- - produce analysis_output.txt
-- - Generate plots
-- - Print a summary of all stages
+  - Read CSV files from 01_firmware/real_output/
+  - Generate output.bin
+  - Analyze the binary data
+  - produce analysis_output.txt
+  - Generate plots
+  - Print a summary of all stages
 - Additional commands can be found in progress_reports.md
