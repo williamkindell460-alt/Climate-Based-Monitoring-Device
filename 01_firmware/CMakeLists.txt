@@ -1,10 +1,4 @@
-add_library(firmware
-    src/sensors.c
-    src/logging.c
-    main/main.c
-    src/esp32_firmware/app_main.c
-)
+cmake_minimum_required(VERSION 3.5)
 
-target_include_directories(firmware PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-)
+include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+project(01_firmware)

@@ -37,22 +37,22 @@ add_test(NAME pipeline_trends_anomalies
 
 
 # -------------------- Unified Test Runner --------------------
-add_custom_target(run_tests
+add_custom_target(host_tool_run_tests
     COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 #The above test runs ctest --output-on-failure, and tests all tests defined in the Register Tests Here section
 # -------------------- Individual Pipeline Mode Targets (TEST MODE) --------------------
-add_custom_target(run_test_pipeline_default
+add_custom_target(host_tool_run_test_pipeline_default
     COMMAND ${CMAKE_CTEST_COMMAND} -R pipeline_default --output-on-failure
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
-add_custom_target(run_test_pipeline_trends_anomalies
+add_custom_target(host_tool_run_test_pipeline_trends_anomalies
     COMMAND ${CMAKE_CTEST_COMMAND} -R pipeline_trends_anomalies  --output-on-failure
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 # Above tests run in ctest, below tests run the sample outputs without ctest testing
-add_custom_target(test_only_pipeline_default
+add_custom_target(host_tool_test_only_pipeline_default
     DEPENDS pipeline
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMAND ${CMAKE_COMMAND} -E env
@@ -63,7 +63,7 @@ add_custom_target(test_only_pipeline_default
             ${TEST_OUTPUT_DIR}/analysis_output.txt
 )
 
-add_custom_target(test_only_pipeline_stats
+add_custom_target(host_tool_test_only_pipeline_stats
     DEPENDS pipeline
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMAND ${CMAKE_COMMAND} -E env
@@ -75,7 +75,7 @@ add_custom_target(test_only_pipeline_stats
             --stats
 )
 
-add_custom_target(test_only_pipeline_anomalies
+add_custom_target(host_tool_test_only_pipeline_anomalies
     DEPENDS pipeline
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
     COMMAND ${CMAKE_COMMAND} -E env
@@ -88,14 +88,14 @@ add_custom_target(test_only_pipeline_anomalies
 )
 
 # -------------------- Real Pipeline Run Targets --------------------
-add_custom_target(run
+add_custom_target(host_tool_run
     COMMAND ${CMAKE_BINARY_DIR}/02_host_tool/pipeline.exe
             ${REAL_BIN}
             ${REAL_OUTPUT_TXT}
     DEPENDS pipeline
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
-add_custom_target(run_stats
+add_custom_target(host_tool_run_stats
     COMMAND ${CMAKE_BINARY_DIR}/02_host_tool/pipeline.exe
             ${REAL_BIN}
             ${REAL_OUTPUT_TXT}
@@ -104,7 +104,7 @@ add_custom_target(run_stats
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 
-add_custom_target(run_anomalies
+add_custom_target(host_tool_run_anomalies
     COMMAND ${CMAKE_BINARY_DIR}/02_host_tool/pipeline.exe
             ${REAL_BIN}
             ${REAL_OUTPUT_TXT}
@@ -113,7 +113,7 @@ add_custom_target(run_anomalies
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
 )
 
-add_custom_target(run_benchmark
+add_custom_target(host_tool_run_benchmark
     COMMAND ${CMAKE_BINARY_DIR}/02_host_tool/pipeline.exe
             ${REAL_BIN}
             ${REAL_OUTPUT_TXT}

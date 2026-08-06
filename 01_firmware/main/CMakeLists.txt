@@ -1,0 +1,13 @@
+idf_component_register(
+    SRCS
+        "app_main.c"
+        "sensors/bme680.c"
+        "sensors/ccs811.c"
+        "sensors/i2c_bus.c"
+        "logging/logger.c"
+        "utils/sleep_manager.c"
+        "utils/error_handler.c"
+    INCLUDE_DIRS
+        "."
+        "../include"
+)
