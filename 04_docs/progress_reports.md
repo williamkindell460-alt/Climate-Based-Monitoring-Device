@@ -59,3 +59,9 @@
 - Made color visualization in the console [x]
 - Generally, today was just polishing features [x]
 - The host tool is now 100% complete [x]
+# Day 8-12
+## Tasks completed
+- Set up firmware structure [x]
+- Analyzed the previous code to ensure reliability [x]
+- Added a generate_telemetry.py script for stress testing the host tool. The efficiency of the host tool was discovered to be around 1.7 seconds for about 80 years of data or around 900 MBs of telemetry that was analyzed. Funnily enough, the analysis document was around 580 MB. [x]
+- These past few days have been less productive since: 1. I do not currently have the hardware to test the code and 2. the API for the sensors and device itself has been difficult to fully understand. [x]
