@@ -1,4 +1,4 @@
-#include "bme680.h"
+#include "bme68x.h"
 #include "ccs811.h"
 #include "i2c_bus.h"
 #include "logger.h"

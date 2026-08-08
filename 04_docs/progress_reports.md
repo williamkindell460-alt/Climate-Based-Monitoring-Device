@@ -65,3 +65,8 @@
 - Analyzed the previous code to ensure reliability [x]
 - Added a generate_telemetry.py script for stress testing the host tool. The efficiency of the host tool was discovered to be around 1.7 seconds for about 80 years of data or around 900 MBs of telemetry that was analyzed. Funnily enough, the analysis document was around 580 MB. [x]
 - These past few days have been less productive since: 1. I do not currently have the hardware to test the code and 2. the API for the sensors and device itself has been difficult to fully understand. [x]
+# Day 13
+## Tasks completed
+- Still working out how to do the firmware.
+- My lack of progess here denotes my progress elsewhere, as I have been busy with other endeavors: applying to internships/jobs and preparing for school.
+- I hope to finish the firmware by tomorrow, and start working on the wifi transmission and hardware implementation next week.
