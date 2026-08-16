@@ -40,6 +40,7 @@ void anomaly_detection(SensorRow *rows, int count, const char *output_file) {
     fclose(out);
     printf(COL_GREEN "[OK] Anomaly Detection: anomaly_detection ran successfully\n\n");
 }
+
 int hard_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
     printf(COL_CYAN "---------------------- HARD ANOMALIES ----------------------\n\n" COL_RESET);
     printf(COL_YELLOW "[INFO] Anomaly Detection: hard_anomalies is running.\n\n" COL_RESET);
@@ -60,13 +61,13 @@ int hard_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
             anomalies_found = 1;
         }
 
-        if (rows[i].air_qual < 0 || rows[i].air_qual > 500) {
-            fprintf(out, "Hard anomaly: Impossible AQI at sample %d (%.2f)\n", i, rows[i].air_qual);
+        if (rows[i].air_qual < 0 || rows[i].air_qual > 100) {
+            fprintf(out, "Hard anomaly: Impossible air quality value at sample %d (%.2f)\n", i, rows[i].air_qual);
             anomalies_found = 1;
         }
 
         if (rows[i].co2 < 300 || rows[i].co2 > 50000) {
-            fprintf(out, "Hard anomaly: Impossible CO₂ at sample %d (%.2f ppm)\n", i, rows[i].co2);
+            fprintf(out, "Hard anomaly: Impossible CO2 at sample %d (%.2f ppm)\n", i, rows[i].co2);
             anomalies_found = 1;
         }
 
@@ -84,21 +85,25 @@ int soft_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) {
     printf(COL_YELLOW "[INFO] Anomaly Detection: soft_anomalies is running.\n\n" COL_RESET);
     for (int i = 0; i < count; i++) {
 
-        if (rows[i].air_qual > 150) {
-            fprintf(out, "Environmental anomaly: High AQI at sample %d (%.2f)\n", i, rows[i].air_qual);
+        // Air quality: 0–100 scale (higher = cleaner)
+        if (rows[i].air_qual < 40) {
+            fprintf(out, "Environmental anomaly: Poor air quality at sample %d (%.2f)\n", i, rows[i].air_qual);
             anomalies_found = 1;
         }
 
-        if (rows[i].voc > 200) {
+        // VOC: typical outdoor range 0–200 ppb, >300 indicates industrial or traffic influence
+        if (rows[i].voc > 300) {
             fprintf(out, "Environmental anomaly: Elevated VOC at sample %d (%.2f ppb)\n", i, rows[i].voc);
             anomalies_found = 1;
         }
 
-        if (rows[i].co2 > 1500) {
-            fprintf(out, "Environmental anomaly: High CO₂ at sample %d (%.2f ppm)\n", i, rows[i].co2);
+        // CO2: global baseline ≈420 ppm, >1000 ppm indicates trapped or polluted air
+        if (rows[i].co2 > 1000) {
+            fprintf(out, "Environmental anomaly: High CO2 at sample %d (%.2f ppm)\n", i, rows[i].co2);
             anomalies_found = 1;
         }
 
+        // Pressure: <980 hPa often signals storm fronts or low-pressure systems
         if (rows[i].pressure < 980) {
             fprintf(out, "Environmental anomaly: Low pressure at sample %d (%.2f hPa) — storm conditions possible\n", i, rows[i].pressure);
             anomalies_found = 1;
@@ -116,7 +121,7 @@ int trend_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) 
         double temp_jump = rows[i].temp - rows[i - 1].temp;
         double hum_jump = rows[i].humidity - rows[i - 1].humidity;
         double press_jump = rows[i].pressure - rows[i - 1].pressure;
-        double aqi_jump = rows[i].air_qual - rows[i - 1].air_qual;
+        double air_qual_jump = rows[i].air_qual - rows[i - 1].air_qual;
         double co2_jump = rows[i].co2 - rows[i - 1].co2;
         double voc_jump = rows[i].voc - rows[i - 1].voc;
 
@@ -135,13 +140,13 @@ int trend_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) 
             anomalies_found = 1;
         }
 
-        if (fabs(aqi_jump) > 20.0) {
-            fprintf(out, "Trend anomaly: AQI jump at sample %d (Δ = %.2f)\n", i, aqi_jump);
+        if (fabs(air_qual_jump) > 7.0) {
+            fprintf(out, "Trend anomaly: Air quality jump at sample %d (Δ = %.2f)\n", i, air_qual_jump);
             anomalies_found = 1;
         }
 
         if (fabs(co2_jump) > 50.0) {
-            fprintf(out, "Trend anomaly: CO₂ jump at sample %d (Δ = %.2f ppm)\n", i, co2_jump);
+            fprintf(out, "Trend anomaly: CO2 jump at sample %d (Δ = %.2f ppm)\n", i, co2_jump);
             anomalies_found = 1;
         }
 
@@ -150,9 +155,7 @@ int trend_anomalies(int anomalies_found, FILE *out, int count, SensorRow *rows) 
             anomalies_found = 1;
         }
     }
-    /*
-       NO ANOMALIES FOUND
-    */
+
     if (!anomalies_found) {
         fprintf(out, "No anomalies detected across all samples.\n\n");
     }
