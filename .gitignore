@@ -81,4 +81,4 @@ __pycache__/
 # bme68x_defs.h
 
 # firmware build
-01_firmware/build/
+01_firmware/ESP32_sensors/build/

@@ -18,7 +18,7 @@ add_compile_definitions(PYTHON_EXECUTABLE="${Python3_EXECUTABLE}")
 
 enable_testing()
 
-add_subdirectory(01_firmware)
+add_subdirectory(01_firmware/ESP32_sensors)
 add_subdirectory(02_host_tool)
 
 
