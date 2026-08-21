@@ -1,0 +1,128 @@
+C:.
+|   .clang-format
+|   CMakeLists.txt
+|   LICENSE
+|   README.md
+|
+|   \---workflows
+|           cmake-single-platform.yml
+|
++---.vscode
+|       c_cpp_properties.json
+|       settings.json
+|
++---01_firmware
+|   \---ESP32_sensors
+|       |   CMakeLists.txt
+|       |   hardware_checklist.md
+|       |   sdkconfig
+|       |   top-level_architecture_overview.md
+|       |
+|       +---components
+|       |   +---bme680
+|       |   |       bme680.c
+|       |   |       bme680.h
+|       |   |       BME680_architechure.md
+|       |   |       CMakeLists.txt
+|       |   |
+|       |   +---ccs811
+|       |   |       ccs811.c
+|       |   |       ccs811.h
+|       |   |       CCS811_architecture.md
+|       |   |       CMakeLists.txt
+|       |   |
+|       |   +---i2c_bus
+|       |   |       CMakeLists.txt
+|       |   |       i2c_bus.c
+|       |   |       i2c_bus.h
+|       |   |       i2c_bus_architecture.md
+|       |   |
+|       |   +---sd_logger
+|       |   |       CMakeLists.txt
+|       |   |       sd_logger.c
+|       |   |       sd_logger.h
+|       |   |       sd_logger_architecture.md
+|       |   |
+|       |   \---spi_bus
+|       |           CMakeLists.txt
+|       |           spi_bus.c
+|       |           spi_bus.h
+|       |           spi_bus_architecture.md
+|       |
+|       \---main
+|               CMakeLists.txt
+|               main.c
+|               main_architecture.md
+|
++---02_host_tool
+|   |   CMakeLists.txt
+|   |
+|   +---examples
+|   |   +---images
+|   |   |       anomalous_sample_plot.png
+|   |   |       normal_sample_plot.png
+|   |   |
+|   |   +---sample_input
+|   |   |       sample_log_01_normal.csv
+|   |   |       sample_log_02_anomalous.csv
+|   |   |
+|   |   \---sample_output
+|   |           anomalous_sample_output.md
+|   |           descriptions.md
+|   |           normal_sample_output.md
+|   |
+|   +---include
+|   |       analyzer.h
+|   |       anomaly_detection.h
+|   |       color.h
+|   |       run_pipeline.h
+|   |       trend_detection.h
+|   |
+|   +---src
+|   |   +---data_analysis
+|   |   |       analyzer.c
+|   |   |       anomaly_detection.c
+|   |   |       main.c
+|   |   |       run_pipeline.c
+|   |   |       trend_detection.c
+|   |   |
+|   |   \---data_reading_plotting
+|   |           plot_data.py
+|   |           sensor_reader.py
+|   |
+|   +---tests
+|   |   |   test_anomalies.c
+|   |   |   test_minmax.c
+|   |   |   test_pipeline_default.c
+|   |   |   test_pipeline_trends_anomalies.c
+|   |   |   test_trends.c
+|   |   |
+|   |   \---output_data
+|   |           output_data.md
+|   |
+|   \---third_party
+|       \---unity
+|               unity.c
+|               unity.h
+|               unity_internals.h
+|
++---03_data
+|   \---output_data
+|       |   output_data.md
+|       |
+|       \---plots
+|               plots.md
+|
++---04_docs
+|       analysis_pipeline.md
+|       architecture.md
+|       firmware_overview.md
+|       hardware_setup.md
+|       progress_reports.md
+|       roadmap.md
+|
++---05_scripts
+|       flash_firmware.sh
+|       generate_telemetry.py
+|       run_pipeline.sh
+|       run_tests.sh

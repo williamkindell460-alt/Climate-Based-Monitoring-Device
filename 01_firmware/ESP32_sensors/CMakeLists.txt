@@ -1,4 +1,4 @@
 cmake_minimum_required(VERSION 3.5)
 
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+include(${CMAKE_CURRENT_LIST_DIR}/../../tools/cmake/project.cmake)
 project(ESP32_sensors)

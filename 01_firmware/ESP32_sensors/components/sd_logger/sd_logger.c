@@ -84,7 +84,7 @@ esp_err_t sd_logger_append(
     int64_t now_us = esp_timer_get_time();
     double timestamp = (double)now_us / 1e6;
 
-    int aqi = compute_aqi(gas_resistance);
+    int air_breathability = compute_breathability(gas_resistance, eco2, humidity, temperature, pressure);
 
     fprintf(f,
         "%.0f,%.2f,%.2f,%.2f,%d,%u,%u\n",
@@ -92,7 +92,7 @@ esp_err_t sd_logger_append(
         temperature,
         humidity,
         pressure,
-        aqi,
+        air_breathability,
         eco2,
         tvoc
     );
