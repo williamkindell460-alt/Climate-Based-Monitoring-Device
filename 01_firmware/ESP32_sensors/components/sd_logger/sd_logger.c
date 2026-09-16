@@ -99,7 +99,7 @@ esp_err_t sd_logger_append(
 
     fclose(f);
     ESP_LOGI(LOG_TAG, "Logged row: T=%.2f H=%.2f P=%.2f AQI=%d CO2=%u TVOC=%u",
-             temperature, humidity, pressure, aqi, eco2, tvoc);
+             temperature, humidity, pressure, air_breathability, eco2, tvoc);
 
     return ESP_OK;
 }
